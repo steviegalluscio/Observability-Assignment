@@ -34,24 +34,3 @@ module.exports = (serviceName) => {
     });
     return trace.getTracer(serviceName);
  };
-/*
-module.exports = (serviceName) => {
-   const exporter = new ConsoleSpanExporter();
-   const provider = new NodeTracerProvider({
-       resource: new Resource({
-           [SemanticResourceAttributes.SERVICE_NAME]: serviceName,
-       }),
-   });
-   provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
-   provider.register();
-   registerInstrumentations({
-       instrumentations: [
-           new HttpInstrumentation(),
-           new ExpressInstrumentation(),
-           new MongoDBInstrumentation(),
-       ],
-       tracerProvider: provider,
-   });
-   return trace.getTracer(serviceName);
-};
-*/
